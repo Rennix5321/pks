@@ -1,0 +1,55 @@
+services:
+  tests:
+    build: .
+    container_name: sorting-visualizer-tests
+    environment:
+      - QT_QPA_PLATFORM=offscreen
+    command: ["/bin/sh", "-c", "./tests/ArrayManagerTests && ./tests/SortingAlgorithmTests && ./tests/SortingManagerTests && ./tests/Scenarios"]
+
+
+  test-array:
+    build: .
+    container_name: sorting-tests-array
+    environment:
+      - QT_QPA_PLATFORM=offscreen
+    command: ["./tests/ArrayManagerTests"]
+
+  test-algorithms:
+    build: .
+    container_name: sorting-tests-algorithms
+    environment:
+      - QT_QPA_PLATFORM=offscreen
+    command: ["./tests/SortingAlgorithmTests"]
+
+  test-manager:
+    build: .
+    container_name: sorting-tests-manager
+    environment:
+      - QT_QPA_PLATFORM=offscreen
+    command: ["./tests/SortingManagerTests"]
+
+  test-scenarios:
+    build: .
+    container_name: sorting-tests-scenarios
+    environment:
+      - QT_QPA_PLATFORM=offscreen
+    command: ["./tests/Scenarios"]
+
+
+  headless:
+    build: .
+    container_name: sorting-visualizer-headless
+    environment:
+      - QT_QPA_PLATFORM=offscreen
+    command: ["--no-gui", "--size", "30", "--algorithm", "2", "--speed", "20"]
+
+
+  help:
+    build: .
+    command: ["--help"]
+
+
+  version:
+    build: .
+    command: ["--version"]
+    

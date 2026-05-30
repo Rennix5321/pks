@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "windows-msvc",
+      "displayName": "Windows MSVC",
+      "description": "Using MSVC compiler with Qt for MSVC",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_CXX_STANDARD": "17",
+        "CMAKE_CXX_FLAGS": "/Zc:__cplusplus /permissive-",
+        "CMAKE_PREFIX_PATH": "C:/Qt/6.11.1/msvc2022_64/lib/cmake"
+      }
+    }
+  ]
+}
